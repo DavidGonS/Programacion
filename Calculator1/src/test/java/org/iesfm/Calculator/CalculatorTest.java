@@ -1,5 +1,6 @@
 package org.iesfm.Calculator;
 
+import org.iesfm.Calculator.Exceptions.CalculatorException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -138,31 +139,52 @@ public class CalculatorTest {
         Assert.assertEquals(0.4, res, DELTA);
     }
 
-//    @Test
-//    public void divByZeroTest() {
-//        //configuracion del escenario del test
-//        double a = 2;
-//        double b = 0;
-//
-//        //ejecucion del test
-//        double res = calculator.div(a, b);
-//
-//        //comprobaciones del test
-//        Assert.assertEquals(7, res, DELTA);
-//    }
-
     @Test
-    public void divPositiveNumberByNegativeTest() {
+    public void divByZeroTest() {
         //configuracion del escenario del test
         double a = 2;
-        double b = -5;
+        double b = 0;
 
         //ejecucion del test
         double res = calculator.div(a, b);
 
         //comprobaciones del test
+        Assert.assertEquals(7, res, DELTA);
+    }
+
+    @Test
+    public void divPositiveNumberByNegativeTest() {
+        double a = 2;
+        double b = -5;
+
+        double res = calculator.div(a, b);
+
         Assert.assertEquals(-0.4, res, DELTA);
     }
 
-    
+    @Test
+    public void factorialPositiveNumber() {
+        int a = 5;
+        try {
+            int res = calculator.factorial(a);
+
+            Assert.assertEquals(120, res);
+            //IMPORTANTE PONER ASSERT.FAIL PARA QUE NO PASE EL TEST
+        }catch (CalculatorException e){
+            Assert.fail("FACTORIAL DE UN POSITIVO NO DEBERIA FALLAR");
+        }
+    }
+
+    @Test
+    public void factorialNegativeNumber() {
+        int a = -5;
+        try {
+            int res = calculator.factorial(a);
+
+            Assert.fail("ES IMPOSIBLE HACER EL FACTORIAL DE UN NUMERO NEGATIVO");
+
+        }catch (CalculatorException e){
+
+        }
+    }
 }
