@@ -25,65 +25,49 @@ public class CalculatorTest {
 
     @Test
     public void sumNegativeNumbersTest() {
-        //configuracion del escenario del test
         double a = -2;
         double b = -5;
 
-        //ejecucion del test
         double res = calculator.sum(a, b);
 
-        //comprobaciones del test
         Assert.assertEquals(-7, res, DELTA);
     }
     @Test
     public void sumPositiveNumberByNegativeTest() {
-        //configuracion del escenario del test
         double a = 2;
         double b = -5;
 
-        //ejecucion del test
         double res = calculator.sum(a, b);
-
-        //comprobaciones del test
         Assert.assertEquals(-3, res, DELTA);
     }
 
     @Test
     public void sumNegativeNumberByPositiveTest() {
-        //configuracion del escenario del test
         double a = -2;
         double b = 5;
 
-        //ejecucion del test
         double res = calculator.sum(a, b);
 
-        //comprobaciones del test
         Assert.assertEquals(3, res, DELTA);
     }
 
     @Test
     public void substractPositiveNumbersTest() {
-        //configuracion del escenario del test
         double a = 2;
         double b = 5;
 
-        //ejecucion del test
         double res = calculator.substract(a, b);
 
-        //comprobaciones del test
         Assert.assertEquals(-3, res, DELTA);
     }
 
     @Test
     public void substractNegativeNumbersTest() {
-        //configuracion del escenario del test
         double a = -2;
         double b = -5;
 
-        //ejecucion del test
         double res = calculator.substract(a, b);
 
-        //comprobaciones del test
         Assert.assertEquals(3, res, DELTA);
     }
 
