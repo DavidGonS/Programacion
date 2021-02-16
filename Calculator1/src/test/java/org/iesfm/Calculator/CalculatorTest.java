@@ -10,6 +10,24 @@ public class CalculatorTest {
 
     private final static double DELTA = 0.0000001;
 
+
+    @Test
+    public void divideTest() {
+        double a = 3;
+        double b = 5;
+
+        double res = calculator.div(a, b);
+        Assert.assertEquals(0.6, res, DELTA);
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void divideByZeroTest() throws ArithmeticException {
+        double a = 3;
+        double b = 0;
+
+        calculator.div(a, b);
+    }
+
     @Test
     public void sumPositiveNumbersTest() {
         //configuracion del escenario del test
@@ -32,6 +50,7 @@ public class CalculatorTest {
 
         Assert.assertEquals(-7, res, DELTA);
     }
+
     @Test
     public void sumPositiveNumberByNegativeTest() {
         double a = 2;
@@ -73,14 +92,11 @@ public class CalculatorTest {
 
     @Test
     public void substractPositiveNumberByNegativeTest() {
-        //configuracion del escenario del test
         double a = 2;
         double b = -5;
 
-        //ejecucion del test
         double res = calculator.substract(a, b);
 
-        //comprobaciones del test
         Assert.assertEquals(7, res, DELTA);
     }
 
@@ -154,7 +170,7 @@ public class CalculatorTest {
 
             Assert.assertEquals(120, res);
             //IMPORTANTE PONER ASSERT.FAIL PARA QUE NO PASE EL TEST
-        }catch (CalculatorException e){
+        } catch (CalculatorException e) {
             Assert.fail("FACTORIAL DE UN POSITIVO NO DEBERIA FALLAR");
         }
     }
@@ -167,7 +183,7 @@ public class CalculatorTest {
 
             Assert.fail("ES IMPOSIBLE HACER EL FACTORIAL DE UN NUMERO NEGATIVO");
 
-        }catch (CalculatorException e){
+        } catch (CalculatorException e) {
 
         }
     }

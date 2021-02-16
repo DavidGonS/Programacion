@@ -10,8 +10,10 @@ import org.slf4j.LoggerFactory;
 
 public class Calculator implements ICalculator {
     private static Logger log = LoggerFactory.getLogger(Calculator.class);
+
     /**
-     *It sums parameter a and b
+     * It sums parameter a and b
+     *
      * @param a El primer sumando
      * @param b El segundo sumando
      * @return Devuelve la suma
@@ -29,7 +31,11 @@ public class Calculator implements ICalculator {
 
     @Override
     public double div(double a, double b) {
-        return a / b;
+        if (b == 0) {
+            throw new ArithmeticException("CAN,T DIVIDE BY ZERO");
+        }else {
+            return a / b;
+        }
     }
 
     @Override
