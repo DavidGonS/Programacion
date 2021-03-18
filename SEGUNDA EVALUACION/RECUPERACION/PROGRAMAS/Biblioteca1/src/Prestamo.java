@@ -1,2 +1,4 @@
-package PACKAGE_NAME;public class Prestamo {
+public class Prestamo {
+    private String isbn;
+    
 }
